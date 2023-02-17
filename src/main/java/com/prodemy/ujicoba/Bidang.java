@@ -9,12 +9,12 @@ package com.prodemy.ujicoba;
  * @author Rizqi Ahmad Abdillah
  */
 public class Bidang {
-
-    private int panjang, lebar, alas, tinggi, jariJari, diagonal1, diagonal2;
+    private float jariJari;
+    private int panjang, lebar, alas, tinggi, diagonal1, diagonal2;
     
     public Bidang(){}
     
-    public Bidang(int panjang, int lebar, int alas, int tinggi, int jariJari, int diagonal1, int diagonal2) {
+    public Bidang(int panjang, int lebar, int alas, int tinggi, float jariJari, int diagonal1, int diagonal2) {
         this.panjang = panjang;
         this.lebar = lebar;
         this.alas = alas;
@@ -40,7 +40,7 @@ public class Bidang {
         this.tinggi = tinggi;
     }
 
-    public void setJariJari(int jariJari) {
+    public void setJariJari(float jariJari) {
         this.jariJari = jariJari;
     }
 
@@ -68,7 +68,7 @@ public class Bidang {
         return tinggi;
     }
 
-    public int getJariJari() {
+    public float getJariJari() {
         return jariJari;
     }
 
@@ -88,7 +88,7 @@ public class Bidang {
         return a * t;
     }
 
-    public int hitungLuasLingkaran(int phi, int r) {
+    public float hitungLuasLingkaran(float phi, float r) {
         return phi * r * r;
     }
 
