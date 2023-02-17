@@ -9,39 +9,41 @@ package com.prodemy.ujicoba;
  * @author Rizqi Ahmad Abdillah
  */
 public class Bidang {
+
     private float jariJari;
-    private int panjang, lebar, alas, tinggi, diagonal1, diagonal2;
-    
-    public Bidang(){}
-    
-    public Bidang(int panjang, int lebar, int alas, int tinggi, float jariJari, int diagonal1, int diagonal2) {
-        this.panjang = panjang;
-        this.lebar = lebar;
-        this.alas = alas;
-        this.tinggi = tinggi;
+    private int sisiPersegi, sisiSegitiga1, sisiSegitiga2, sisiSegitiga3, diagonal1, diagonal2;
+
+    public Bidang() {
+    }
+
+    public Bidang(float jariJari, int sisiPersegi, int sisiSegitiga1, int sisiSegitiga2, int sisiSegitiga3, int diagonal1, int diagonal2) {
         this.jariJari = jariJari;
+        this.sisiPersegi = sisiPersegi;
+        this.sisiSegitiga1 = sisiSegitiga1;
+        this.sisiSegitiga2 = sisiSegitiga2;
+        this.sisiSegitiga3 = sisiSegitiga3;
         this.diagonal1 = diagonal1;
         this.diagonal2 = diagonal2;
     }
 
-    public void setPanjang(int panjang) {
-        this.panjang = panjang;
-    }
-
-    public void setLebar(int lebar) {
-        this.lebar = lebar;
-    }
-
-    public void setAlas(int alas) {
-        this.alas = alas;
-    }
-
-    public void setTinggi(int tinggi) {
-        this.tinggi = tinggi;
-    }
-
     public void setJariJari(float jariJari) {
         this.jariJari = jariJari;
+    }
+
+    public void setSisiPersegi(int sisiPersegi) {
+        this.sisiPersegi = sisiPersegi;
+    }
+
+    public void setSisiSegitiga1(int sisiSegitiga1) {
+        this.sisiSegitiga1 = sisiSegitiga1;
+    }
+
+    public void setSisiSegitiga2(int sisiSegitiga2) {
+        this.sisiSegitiga2 = sisiSegitiga2;
+    }
+
+    public void setSisiSegitiga3(int sisiSegitiga3) {
+        this.sisiSegitiga3 = sisiSegitiga3;
     }
 
     public void setDiagonal1(int diagonal1) {
@@ -52,24 +54,24 @@ public class Bidang {
         this.diagonal2 = diagonal2;
     }
 
-    public int getPanjang() {
-        return panjang;
-    }
-
-    public int getLebar() {
-        return lebar;
-    }
-
-    public int getAlas() {
-        return alas;
-    }
-
-    public int getTinggi() {
-        return tinggi;
-    }
-
     public float getJariJari() {
         return jariJari;
+    }
+
+    public int getSisiPersegi() {
+        return sisiPersegi;
+    }
+
+    public int getSisiSegitiga1() {
+        return sisiSegitiga1;
+    }
+
+    public int getSisiSegitiga2() {
+        return sisiSegitiga2;
+    }
+
+    public int getSisiSegitiga3() {
+        return sisiSegitiga3;
     }
 
     public int getDiagonal1() {
@@ -80,12 +82,55 @@ public class Bidang {
         return diagonal2;
     }
 
-    public int hitungLuasPersegi(int p, int l) {
-        return p * l;
+//    HITUNG KELILING-----------
+    public int hitungKelilingPersegi(int s) {
+        return s * 4;
     }
 
-    public int hitungLuasSegitiga(int a, int t) {
-        return a * t;
+    public int hitungKelilingSegitiga(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public float hitungKelilingLingkaran(float phi, float r) {
+        return phi * 2 * r;
+    }
+
+    public int hitungKelilingDiamond(int d1, int d2) {
+        int x = d1 / 2;
+        int y = d2 / 2;
+        return (int) Math.sqrt((x * x) + (y * y)) * 4;
+    }
+
+//    HITUNG LUAS------------------
+    public int hitungLuasPersegi(int s) {
+        return s * s;
+    }
+
+    public int hitungLuasSegitiga(int a, int b, int c) {
+        int luas, tinggi;
+//        jika segitiga sama sisi
+        if (a == b) {
+            tinggi = (int) Math.sqrt((a * a) - (c / 2) * (c / 2));
+            luas = c * tinggi / 2;
+        } else if (b == c) {
+            tinggi = (int) Math.sqrt((b * b) - (a / 2) * (a / 2));
+            luas = a * tinggi / 2;
+        } else if (a == c) {
+            tinggi = (int) Math.sqrt((c * c) - (b / 2) * (b / 2));
+            luas = b * tinggi / 2;
+//        jika segitiga siku-siku
+        } else if (a * a == b * b + c * c) {
+            luas = b * c / 2;
+        } else if (b * b == a * a + c * c) {
+            luas = a * c / 2;
+        } else if (c * c == a * a + b * b) {
+            luas = a * b / 2;
+        } else {
+//        jika segitiga sembarang
+            int s = (a + b + c) / 2;
+            luas = (int) Math.sqrt(s * (s - a) * (s - b) * (s - c));
+        }
+        return luas;
     }
 
     public float hitungLuasLingkaran(float phi, float r) {
@@ -93,7 +138,7 @@ public class Bidang {
     }
 
     public int hitungLuasDiamond(int d1, int d2) {
-        return d1 * d2;
+        return d1 * d2 / 2;
     }
 
 }
