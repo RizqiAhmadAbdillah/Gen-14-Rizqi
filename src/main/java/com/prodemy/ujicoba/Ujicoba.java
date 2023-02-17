@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 /**
  *
- * @author Rizqi Ahmad Abdillah TUGAS AKHIR PEKAN
+ * @author Rizqi Ahmad Abdillah
+ *
+ * TUGAS AKHIR PEKAN
  *
  * 1. Buatlah class bidang datar (Persegi, Segitiga, Lingkaran, BelahKetupat)
  * berikut dengan atributnya masing-masing dan jangan lupa setter dan getternya,
@@ -26,7 +28,8 @@ public class Ujicoba {
         Scanner scan = new Scanner(System.in);
         float phi = 3.14F, jariJari;
         int sisiPersegi, sisiSegitiga1, sisiSegitiga2, sisiSegitiga3, diagonal1, diagonal2;
-        int bidangDatar[] = new int[4];
+        int[] kelilingBidangDatar = new int[4];
+        int[] luasBidangDatar = new int[4];
         String shapes[] = {"Persegi", "Segitiga", "Lingkaran", "Diamond"};
         Bidang bidang = new Bidang();
 
@@ -37,9 +40,10 @@ public class Ujicoba {
         sisiPersegi = scan.nextInt();
         bidang.setSisiPersegi(sisiPersegi);
         System.out.println("=======================");
-        System.out.println("Keliling Persegi: " + bidang.hitungKelilingPersegi(bidang.getSisiPersegi()));
-        bidangDatar[0] = bidang.hitungLuasPersegi(bidang.getSisiPersegi());
-        System.out.print("Luas Persegi: " + bidangDatar[0] + "\n");
+        kelilingBidangDatar[0] = bidang.hitungKelilingPersegi(bidang.getSisiPersegi());
+        System.out.printf("Keliling Persegi: " + kelilingBidangDatar[0] + "\n");
+        luasBidangDatar[0] = bidang.hitungLuasPersegi(bidang.getSisiPersegi());
+        System.out.print("Luas Persegi: " + luasBidangDatar[0] + "\n");
 
         System.out.println("\n-----------------------");
         System.out.println("2. Segitiga");
@@ -53,19 +57,21 @@ public class Ujicoba {
         sisiSegitiga3 = scan.nextInt();
         bidang.setSisiSegitiga3(sisiSegitiga3);
         System.out.println("=======================");
-        System.out.println("Keliling Segitiga: " + bidang.hitungKelilingSegitiga(bidang.getSisiSegitiga1(), bidang.getSisiSegitiga2(), bidang.getSisiSegitiga3()));
-        bidangDatar[1] = bidang.hitungLuasSegitiga(bidang.getSisiSegitiga1(), bidang.getSisiSegitiga2(), bidang.getSisiSegitiga3());
-        System.out.print("Luas Segitiga: " + bidangDatar[1] + "\n");
+        kelilingBidangDatar[1] = bidang.hitungKelilingSegitiga(bidang.getSisiSegitiga1(), bidang.getSisiSegitiga2(), bidang.getSisiSegitiga3());
+        System.out.print("Keliling Segitiga: " + kelilingBidangDatar[1] + "\n");
+        luasBidangDatar[1] = bidang.hitungLuasSegitiga(bidang.getSisiSegitiga1(), bidang.getSisiSegitiga2(), bidang.getSisiSegitiga3());
+        System.out.print("Luas Segitiga: " + luasBidangDatar[1] + "\n");
 
-        System.out.println("-----------------------");
+        System.out.println("\n-----------------------");
         System.out.println("3. Lingkaran");
         System.out.print("Masukkan jari-jari: ");
         jariJari = scan.nextFloat();
         bidang.setJariJari(jariJari);
         System.out.println("=======================");
-        System.out.println("Keliling Lingkaran: " + bidang.hitungKelilingLingkaran(phi, bidang.getJariJari()));
-        bidangDatar[2] = (int) bidang.hitungLuasLingkaran(phi, bidang.getJariJari());
-        System.out.print("Luas Lingkaran: " + bidangDatar[2] + "\n");
+        kelilingBidangDatar[2] = (int) bidang.hitungKelilingLingkaran(phi, bidang.getJariJari());
+        System.out.print("Keliling Lingkaran: " + kelilingBidangDatar[2] + "\n");
+        luasBidangDatar[2] = (int) bidang.hitungLuasLingkaran(phi, bidang.getJariJari());
+        System.out.print("Luas Lingkaran: " + luasBidangDatar[2] + "\n");
 
         System.out.println("\n-----------------------");
         System.out.println("4. Diamond");
@@ -76,18 +82,25 @@ public class Ujicoba {
         diagonal2 = scan.nextInt();
         bidang.setDiagonal2(diagonal2);
         System.out.println("=======================");
-        System.out.println("Keliling Diamond: " + bidang.hitungKelilingDiamond(bidang.getDiagonal1(), bidang.getDiagonal2()));
-        bidangDatar[3] = bidang.hitungLuasDiamond(bidang.getDiagonal1(), bidang.getDiagonal2());
-        System.out.print("Luas Diamond: " + bidangDatar[3] + "\n");
+        kelilingBidangDatar[3] = bidang.hitungKelilingDiamond(bidang.getDiagonal1(), bidang.getDiagonal2());
+        System.out.print("Keliling Diamond: " + kelilingBidangDatar[3] + "\n");
+        luasBidangDatar[3] = bidang.hitungLuasDiamond(bidang.getDiagonal1(), bidang.getDiagonal2());
+        System.out.print("Luas Diamond: " + luasBidangDatar[3] + "\n");
 
         System.out.println("\n-----------------------");
-        System.out.print("Kumpulan Luas Dalam Array: " + Arrays.toString(bidangDatar));
-        System.out.println("\n\nMenampilkan array menggunakan looping for");
-        for (int i = 0; i < bidangDatar.length; i++) {
-            System.out.println("Luas " + shapes[i] + "\t: " + bidangDatar[i]);
-
+        System.out.print("\nKumpulan Keliling Dalam Array:\t" + Arrays.toString(kelilingBidangDatar));
+        System.out.print("\nKumpulan Luas Dalam Array:\t" + Arrays.toString(luasBidangDatar));
+        System.out.println("\n\nMenampilkan array keliling menggunakan looping for");
+        for (int i = 0; i < kelilingBidangDatar.length; i++) {
+            System.out.println("Keliling " + shapes[i] + "\t: " + kelilingBidangDatar[i]);
         }
+        System.out.println("\nMenampilkan array luas menggunakan looping for");
+        for (int i = 0; i < luasBidangDatar.length; i++) {
+            System.out.println("Luas " + shapes[i] + "\t: " + luasBidangDatar[i]);            
+        }
+    }
 
+//    public void printData() {
 //        float value1, value2;
 //        String shapes[][] = {
 //            {"Persegi Panjang", "Panjang", "Lebar"},
@@ -111,5 +124,5 @@ public class Ujicoba {
 //                System.out.print("Luas Persegi Panjang: " + bidangDatar[0] + "\n");
 //            }
 //        }
-    }
+//    }
 }
