@@ -27,6 +27,7 @@ public class Ujicoba {
         float phi = 3.14F, jariJari;
         int sisiPersegi, sisiSegitiga1, sisiSegitiga2, sisiSegitiga3, diagonal1, diagonal2;
         int bidangDatar[] = new int[4];
+        String shapes[] = {"Persegi", "Segitiga", "Lingkaran", "Diamond"};
         Bidang bidang = new Bidang();
 
         System.out.println("Program Menghitung Luas & Keliling");
@@ -81,6 +82,11 @@ public class Ujicoba {
 
         System.out.println("\n-----------------------");
         System.out.print("Kumpulan Luas Dalam Array: " + Arrays.toString(bidangDatar));
+        System.out.println("\n\nMenampilkan array menggunakan looping for");
+        for (int i = 0; i < bidangDatar.length; i++) {
+            System.out.println("Luas " + shapes[i] + "\t: " + bidangDatar[i]);
+
+        }
 
 //        float value1, value2;
 //        String shapes[][] = {
