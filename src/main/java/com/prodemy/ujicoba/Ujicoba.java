@@ -36,9 +36,14 @@ public class Ujicoba {
         System.out.println("Program Menghitung Luas & Keliling");
         System.out.println("-----------------------");
         System.out.println("1. Persegi");
-        System.out.print("Masukkan sisi persegi: ");
-        sisiPersegi = scan.nextInt();
-        bidang.setSisiPersegi(sisiPersegi);
+        do {
+            System.out.print("Masukkan sisi persegi: ");
+            sisiPersegi = scan.nextInt();
+            bidang.setSisiPersegi(sisiPersegi);
+            if (sisiPersegi < 0) {
+                System.err.println("Data tidak boleh negatif!");
+            }
+        } while (sisiPersegi < 0);
         System.out.println("=======================");
         kelilingBidangDatar[0] = bidang.hitungKelilingPersegi(bidang.getSisiPersegi());
         System.out.printf("Keliling Persegi: " + kelilingBidangDatar[0] + "\n");
@@ -47,15 +52,33 @@ public class Ujicoba {
 
         System.out.println("\n-----------------------");
         System.out.println("2. Segitiga");
-        System.out.print("Masukkan sisi segitiga 1: ");
-        sisiSegitiga1 = scan.nextInt();
-        bidang.setSisiSegitiga1(sisiSegitiga1);
-        System.out.print("Masukkan sisi segitiga 2: ");
-        sisiSegitiga2 = scan.nextInt();
-        bidang.setSisiSegitiga2(sisiSegitiga2);
-        System.out.print("Masukkan sisi segitiga 3: ");
-        sisiSegitiga3 = scan.nextInt();
-        bidang.setSisiSegitiga3(sisiSegitiga3);
+        do {
+
+            System.out.print("Masukkan sisi segitiga 1: ");
+            sisiSegitiga1 = scan.nextInt();
+            bidang.setSisiSegitiga1(sisiSegitiga1);
+            if (sisiSegitiga1 < 0) {
+                System.err.println("Data tidak boleh negatif!");
+            }
+        } while (sisiSegitiga1 < 0);
+        do {
+
+            System.out.print("Masukkan sisi segitiga 2: ");
+            sisiSegitiga2 = scan.nextInt();
+            bidang.setSisiSegitiga2(sisiSegitiga2);
+            if (sisiSegitiga2 < 0) {
+                System.err.println("Data tidak boleh negatif!");
+            }
+        } while (sisiSegitiga2 < 0);
+        do {
+
+            System.out.print("Masukkan sisi segitiga 3: ");
+            sisiSegitiga3 = scan.nextInt();
+            bidang.setSisiSegitiga3(sisiSegitiga3);
+            if (sisiSegitiga3 < 0) {
+                System.err.println("Data tidak boleh negatif!");
+            }
+        } while (sisiSegitiga1 < 0);
         System.out.println("=======================");
         kelilingBidangDatar[1] = bidang.hitungKelilingSegitiga(bidang.getSisiSegitiga1(), bidang.getSisiSegitiga2(), bidang.getSisiSegitiga3());
         System.out.print("Keliling Segitiga: " + kelilingBidangDatar[1] + "\n");
@@ -64,9 +87,15 @@ public class Ujicoba {
 
         System.out.println("\n-----------------------");
         System.out.println("3. Lingkaran");
-        System.out.print("Masukkan jari-jari: ");
-        jariJari = scan.nextFloat();
-        bidang.setJariJari(jariJari);
+        do {
+
+            System.out.print("Masukkan jari-jari: ");
+            jariJari = scan.nextFloat();
+            bidang.setJariJari(jariJari);
+            if (jariJari < 0) {
+                System.err.println("Data tidak boleh negatif!");
+            }
+        } while (jariJari < 0);
         System.out.println("=======================");
         kelilingBidangDatar[2] = (int) bidang.hitungKelilingLingkaran(phi, bidang.getJariJari());
         System.out.print("Keliling Lingkaran: " + kelilingBidangDatar[2] + "\n");
@@ -75,12 +104,24 @@ public class Ujicoba {
 
         System.out.println("\n-----------------------");
         System.out.println("4. Diamond");
-        System.out.print("Masukkan diagonal 1: ");
-        diagonal1 = scan.nextInt();
-        bidang.setDiagonal1(diagonal1);
-        System.out.print("Masukkan diagonal 2: ");
-        diagonal2 = scan.nextInt();
-        bidang.setDiagonal2(diagonal2);
+        do {
+
+            System.out.print("Masukkan diagonal 1: ");
+            diagonal1 = scan.nextInt();
+            bidang.setDiagonal1(diagonal1);
+            if (diagonal1 < 0) {
+                System.err.println("Data tidak boleh negatif!");
+            }
+        } while (diagonal1 < 0);
+        do {
+
+            System.out.print("Masukkan diagonal 2: ");
+            diagonal2 = scan.nextInt();
+            bidang.setDiagonal2(diagonal2);
+            if (diagonal2 < 0) {
+                System.err.println("Data tidak boleh negatif!");
+            }
+        } while (diagonal2 < 0);
         System.out.println("=======================");
         kelilingBidangDatar[3] = bidang.hitungKelilingDiamond(bidang.getDiagonal1(), bidang.getDiagonal2());
         System.out.print("Keliling Diamond: " + kelilingBidangDatar[3] + "\n");
@@ -96,7 +137,7 @@ public class Ujicoba {
         }
         System.out.println("\nMenampilkan array luas menggunakan looping for");
         for (int i = 0; i < luasBidangDatar.length; i++) {
-            System.out.println("Luas " + shapes[i] + "\t: " + luasBidangDatar[i]);            
+            System.out.println("Luas " + shapes[i] + "\t: " + luasBidangDatar[i]);
         }
     }
 
